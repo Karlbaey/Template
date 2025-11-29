@@ -1,6 +1,7 @@
 name: "快问快答模板（软件开发类）"
 description: |
   当你在开发中遇到问题时，使用这个模板提供信息。
+labels: Q&A
 body:
   - type: textarea
     id: problem-context
@@ -48,7 +49,7 @@ body:
   - type: markdown
     attributes:
       value: "## 🛠️ 环境信息"
-      description: "请提供你的技术环境和版本，这对诊断问题非常重要。"
+      # description: "请提供你的技术环境和版本，这对诊断问题非常重要。"
 
   - type: dropdown
     id: tech-stack
