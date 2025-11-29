@@ -1,0 +1,101 @@
+name: "快问快答模板（软件开发类）"
+description: |
+  当你在开发中遇到问题时，使用这个模板提供信息。
+body:
+  - type: textarea
+    id: problem-context
+    attributes:
+      label: "你想解决什么问题？"
+      description: "请用 30 到 80 字清晰地描述你遇到的问题或你的目标。不要只说“这个报错怎么办”，而要说明你想做什么。"
+      placeholder: |
+        例如：我正在尝试使用 Python 的 requests 库发送一个 POST 请求，但服务器总是返回 HTTP 403。
+    validations:
+      required: true
+
+  - type: textarea
+    id: code-or-error
+    attributes:
+      label: "相关代码、命令或错误信息"
+      description: "如果问题涉及代码，请提供最关键的那几行。如果是报错，请提供完整的错误信息。使用 ``` 代码块包裹。"
+      render: markdown
+      placeholder: |
+        ```python
+        # your code
+        response = requests.post(url, data={"key": "value"})
+        print(response.status_code) # print 404
+        ```
+
+        ```
+        # error log here
+        HTTPError: 400 Client Error: Bad Request for url: ...
+        ```
+    validations:
+      required: false
+
+  - type: textarea
+    id: what-tried
+    attributes:
+      label: "你已尝试过哪些方法？"
+      description: "列出你已经做过的排查步骤，这可以避免佬友提出你已经试过的方案，并展示你的思考过程。"
+      placeholder: |
+        例如：
+        1. 检查了 API 文档，确认请求体格式是正确的。
+        2. 使用 Postman 测试了同一个接口，是成功的。
+        3. 确认了 URL 没有写错。
+    validations:
+      required: true
+
+  - type: markdown
+    attributes:
+      value: "## 🛠️ 环境信息"
+      description: "请提供你的技术环境和版本，这对诊断问题非常重要。"
+
+  - type: dropdown
+    id: tech-stack
+    attributes:
+      label: "主要技术栈"
+      description: "请选择问题相关的主要技术栈。"
+      options:
+        - Python
+        - JavaScript/Node.js
+        - Java
+        - Go
+        - PHP
+        - Rust
+        - Linux/Shell
+        - 数据库 (MySQL/PostgreSQL等)
+        - 前端框架 (React/Vue/Angular等)
+        - 其他（请在下方的"其他环境信息"中说明）
+    validations:
+      required: false
+
+  - type: input
+    id: version-info
+    attributes:
+      label: "版本号"
+      description: "请填写主要技术栈的具体版本号。"
+      placeholder: "例如：Python 3.8.5, Node.js 18.17.0, React 18.2.0"
+    validations:
+      required: false
+
+  - type: textarea
+    id: additional-environment
+    attributes:
+      label: "其他环境信息"
+      description: "任何其他相关的环境信息，如操作系统、浏览器版本、依赖库版本等。"
+      placeholder: |
+        例如：
+        - 操作系统：Windows 11 / Ubuntu 24.04 / macOS Sonoma
+        - 浏览器：Chrome 115.0
+        - 相关库版本：requests 2.28.0, Django 4.2.1
+      render: markdown
+    validations:
+      required: false
+
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: "其他补充信息"
+      description: "任何其他你认为有助于解决问题的信息。"
+      placeholder: |
+        例如：这个问题只在生产环境出现，开发环境正常。
